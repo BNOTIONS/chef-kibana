@@ -18,7 +18,11 @@ function (Settings) {
      * elasticsearch host
      * @type {String}
      */
+    <% if @es_url.nil? -%>
     elasticsearch: "http://"+window.location.hostname+":<%= @es_port %>",
+    <% else -%>
+    elasticsearch: "<%= @es_url %>",
+    <% end -%>
 
     /**
      * The default ES index to use for storing Kibana specific object
